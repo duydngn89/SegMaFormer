@@ -4,6 +4,11 @@ SegMaFormer is a 3D medical image segmentation model integrated into nnU-Net v2.
 This repository retains the `nnUNet-Custom` source structure and provides one
 final SegMaFormer architecture, without custom ablation variants.
 
+**Paper:** [*SegMaFormer: A Hybrid State-Space and Transformer Model for Efficient
+3D Medical Image Segmentation*]by Duy D. Nguyen,
+Phat T. Tran-Truong, and Xuan-Bach Le was accepted to the IEEE/CVF Winter
+Conference on Applications of Computer Vision (WACV) 2027, Applications Track.
+
 | Encoder stage | Mixer |
 | --- | --- |
 | Stage 1 | Mamba |
