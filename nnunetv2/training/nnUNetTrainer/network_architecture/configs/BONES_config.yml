@@ -1,0 +1,23 @@
+model_name: SegMaFormer
+model_parameters:
+  in_channels: 1
+
+  # Stage-wise hyperparameters
+  sr_ratios: [1, 1, 1, 1]
+  embed_dims: [48, 66, 96, 192]
+  patch_kernel_size: [3, 3, 3, 3]
+  patch_stride: [2, 2, 2, 2]
+  patch_padding: [1, 1, 1, 1]
+  mlp_ratios: [4, 4, 3, 3]
+  num_heads: [2, 2, 4, 6]
+  depths: [4, 3, 2, 1]
+
+  # Mamba-specific hyperparameters
+  d_state: [16, 8, 4, 4]
+  d_conv: [3, 3, 3, 3]
+  expand: [2, 2, 2, 2]
+
+  # Decoder
+  num_classes: 9
+  decoder_dropout: 0.0
+  decoder_head_embedding_dim: 320
