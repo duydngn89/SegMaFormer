@@ -73,8 +73,8 @@ from nnunetv2.utilities.plans_handling.plans_handler import ConfigurationManager
 from nnunetv2.training.nnUNetTrainer.network_architecture.SegMaFormer import build_segmaformer_model_from_yaml
 from torch import nn
 
-class SegMaFormerTrainer(nnUNetTrainer):
-    config_filename = "BCTV_config.yml"
+class SegMaFormerTrainer_BTCV(nnUNetTrainer):
+    config_filename = "BTCV_config.yml"
     
     @classmethod
     def build_network_architecture(
@@ -83,7 +83,7 @@ class SegMaFormerTrainer(nnUNetTrainer):
         enable_deep_supervision: bool = False,
     ) -> nn.Module:
         config_path = os.path.join(os.path.dirname(__file__), "network_architecture",
-                                   "configs", "BCTV_config.yml")
+                                   "configs", "BTCV_config.yml")
         return build_segmaformer_model_from_yaml(config_path, overrides={
             "in_channels": num_input_channels,
             "num_classes": num_classes,

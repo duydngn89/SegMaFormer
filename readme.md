@@ -107,7 +107,7 @@ is specific to preprocessed `*_modalities.pt` and `*_label.pt` inputs. Edit its
 `pt_root` path before running it. For an original NIfTI release, prepare the
 modalities and labels directly in nnU-Net format instead.
 
-### Synapse / BTCV
+### BTCV
 
 Prepare CT images, segmentation labels, and `dataset.json` in nnU-Net format.
 Datasets are not bundled with this repository.
@@ -121,8 +121,8 @@ They retain the source project's dataset-specific configurations and losses.
 | --- | --- | --- | --- |
 | BraTS | 42 | `SegMaFormerTrainer_BRATS` | [BRATS_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/BRATS_config.yml) |
 | ACDC | 27 | `SegMaFormerTrainer_ACDC` | [ACDC_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/ACDC_config.yml) |
-| Synapse / BTCV | 1 | `SegMaFormerTrainer` | [BCTV_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/BCTV_config.yml) |
-| Custom / BONES | Your ID | `SegMaFormerTrainer_Custom` | [BONES_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/BONES_config.yml) |
+| BTCV | 1 | `SegMaFormerTrainer_BTCV` | [BTCV_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/BTCV_config.yml) |
+| Custom | Your ID | `SegMaFormerTrainer_Custom` | [Custom_config.yml](nnunetv2/training/nnUNetTrainer/network_architecture/configs/Custom_config.yml) |
 
 Replace the example IDs with those of your datasets. BTCV uses the retained
 fixed-stride settings; ACDC uses the isotropic settings. Input channels and
@@ -148,8 +148,8 @@ nnUNetv2_train 42 3d_fullres 0 -tr SegMaFormerTrainer_BRATS
 # ACDC
 nnUNetv2_train 27 3d_fullres 0 -tr SegMaFormerTrainer_ACDC
 
-# Synapse / BTCV
-nnUNetv2_train 1 3d_fullres 0 -tr SegMaFormerTrainer
+# BTCV
+nnUNetv2_train 1 3d_fullres 0 -tr SegMaFormerTrainer_BTCV
 ```
 
 Use fold indices `0` through `4` for five-fold cross-validation. To select a GPU,
@@ -200,6 +200,12 @@ metrics. The reference models shown are not included in this cleaned repository.
 
 ![ACDC cardiac MRI cases: ground truth and predictions from SegMaFormer and reference models](figure/acdc_visual_comparison.png)
 
-### Synapse / BTCV
+### BTCV
 
 ![BTCV abdominal CT cases: ground truth and predictions from SegMaFormer and reference models](figure/btcv_roi_visualization_models_without_label10.png)
+
+## Upstream source
+
+This repository builds on [nnU-Net v2 by MIC-DKFZ](https://github.com/MIC-DKFZ/nnUNet).
+The original framework and its documentation are available in that repository.
+See the included [Apache-2.0 license](LICENSE).

@@ -83,7 +83,7 @@ class SegMaFormerTrainer_Custom(nnUNetTrainer):
         enable_deep_supervision: bool = False,
     ) -> nn.Module:
         config_path = os.path.join(os.path.dirname(__file__), "network_architecture",
-                                   "configs", "BONES_config.yml")
+                                   "configs", "Custom_config.yml")
         return build_segmaformer_model_from_yaml(config_path, overrides={
             "in_channels": num_input_channels,
             "num_classes": num_classes,
